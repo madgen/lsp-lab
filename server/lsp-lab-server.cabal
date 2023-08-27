@@ -1,0 +1,50 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           lsp-lab-server
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/madgen/lsp-lab-server#readme>
+homepage:       https://github.com/madgen/lsp-lab-server#readme
+bug-reports:    https://github.com/madgen/lsp-lab-server/issues
+author:         Mistral Contrastin
+maintainer:     madgenhetic@gmail.com
+copyright:      Copyright (c) 2023 Mistral Contrastin
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/madgen/lsp-lab-server
+
+library
+  other-modules:
+      Paths_lsp_lab_server
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , lsp
+    , text
+  default-language: Haskell2010
+
+executable lsp-lab-server-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_lsp_lab_server
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , lsp
+    , lsp-lab-server
+    , text
+  default-language: Haskell2010

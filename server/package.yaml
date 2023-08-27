@@ -1,0 +1,50 @@
+name:                lsp-lab-server
+version:             0.1.0.0
+github:              "madgen/lsp-lab-server"
+license:             BSD3
+author:              "Mistral Contrastin"
+maintainer:          "madgenhetic@gmail.com"
+copyright:           "Copyright (c) 2023 Mistral Contrastin"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/madgen/lsp-lab-server#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+- lsp
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  lsp-lab-server-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lsp-lab-server
