@@ -17,13 +17,14 @@ license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
-    CHANGELOG.md
 
 source-repository head
   type: git
   location: https://github.com/madgen/lsp-lab-server
 
 library
+  exposed-modules:
+      Lib
   other-modules:
       Paths_lsp_lab_server
   hs-source-dirs:

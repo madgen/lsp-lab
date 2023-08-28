@@ -11,9 +11,9 @@ import           Data.Maybe (fromJust)
 import           Data.String (IsString(..))
 import qualified Data.Text as T
 import qualified Data.Text.IO as TIO
-import           Data.Char (isAlpha)
 import           GHC.IO.Exception (ExitCode(ExitFailure))
 import           System.Exit (exitWith)
+import           Lib (findWordAndBoundaries)
 
 main :: IO ()
 main = do
@@ -62,21 +62,3 @@ serverDef =
               let rsp = Hover (InL ms) (Just range)
               responder (Right $ InL rsp)
             Nothing -> responder (Right $ InR Null)]
-
-findWordAndBoundaries :: T.Text -> Int -> Int -> Maybe (T.Text, Int, Int)
-findWordAndBoundaries contents line col
-  | isAlpha c = Just
-    ( leftFragment <> rightFragment
-    , col - T.length leftFragment
-    , col + T.length rightFragment)
-  | otherwise = Nothing
-  where
-    c = T.index r 0
-
-    (l, r) = T.splitAt col lineContents
-
-    leftFragment = T.reverse . T.takeWhile isAlpha . T.reverse $ l
-
-    rightFragment = T.takeWhile isAlpha r
-
-    lineContents = T.lines contents !! line

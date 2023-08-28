@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	let stdout: Buffer;
 	try {
-		stdout = execSync(`find ${__dirname}/../../lsp-lab-server -iname lsp-lab-server-exe -type file | tail -n1`);
+		stdout = execSync(`find ${__dirname}/../../server -iname lsp-lab-server-exe -type file | tail -n1`);
 	} catch {
 		outputChannel.appendLine("There was a problem finding the LSP server executable.");
 		return;
